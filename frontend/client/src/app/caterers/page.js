@@ -37,9 +37,8 @@ export default function CaterersPage() {
         
         <div className="max-w-6xl mx-auto px-6 pt-20 pb-16 relative z-10">
           <header className="text-center">
-            <h1 className="text-5xl font-black text-red-900 tracking-tight mb-4">
-               Catering <span className="text-red-900">Partners</span> 
-            
+           <h1 className="text-5xl font-black text-red-900 tracking-tight mb-4">
+             Catering <span className="text-red-900">Partners</span> 
             </h1>
             <p className="text-slate-500 text-lg max-w-xl mx-auto font-medium">
             Browse trusted catering professionals and choose the perfect match for your celebration.
@@ -56,6 +55,7 @@ export default function CaterersPage() {
             <input
               type="text"
               placeholder="Search by caterer name..."
+              value={search}
               className="w-full pl-12 pr-5 py-4 rounded-[2rem] bg-slate-50/50 border border-slate-100 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none text-slate-900 transition-all font-medium"
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -65,6 +65,7 @@ export default function CaterersPage() {
             <input
               type="number"
               placeholder="Max price per plate"
+              value={maxPrice}
               className="w-full pl-12 pr-5 py-4 rounded-[2rem] bg-slate-50/50 border border-slate-100 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none text-slate-900 transition-all font-medium"
               onChange={(e) => setMaxPrice(e.target.value)}
             />
