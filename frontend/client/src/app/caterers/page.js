@@ -23,11 +23,15 @@ export default function CaterersPage() {
       });
   }, []);
 
-  const filteredCaterers = caterers.filter((cat) => {
-    const matchesName = cat.name.toLowerCase().includes(search.toLowerCase());
-    const matchesPrice = maxPrice === "" || cat.pricePerPlate <= parseInt(maxPrice);
-    return matchesName && matchesPrice;
-  });
+const filteredCaterers = useMemo(() => {
+    return caterers.filter((cat) => {
+      const matchesName = cat?.name?.toLowerCase().includes(search.toLowerCase()) ?? false;
+      const parsedMaxPrice = parseInt(maxPrice, 10);
+      const matchesPrice = !maxPrice || (cat?.pricePerPlate && cat.pricePerPlate <= parsedMaxPrice);
+      
+      return matchesName && matchesPrice;
+    });
+  }, [caterers, search, maxPrice]);
 
   return (
     <div className="min-h-screen bg-[#f8fafc] pb-20">
